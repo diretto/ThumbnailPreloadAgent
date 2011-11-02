@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="config.xsd">
+
+	<api-base-url>http://api.diretto.org/v2/</api-base-url>
+
+	<system-user>
+		<email-address>system@example.org</email-address>
+		<password>system-password</password>
+	</system-user>
+
+	<restlet-client>
+
+		<connector-protocol>HTTP</connector-protocol>
+
+		<!-- http://www.restlet.org/documentation/snapshot/jse/ext/org/restlet/ext/httpclient/HttpClientHelper.html -->
+
+		<connector-parameters>
+			<parameter name="followRedirects" value="false" />
+			<parameter name="idleCheckInterval" value="0" />
+			<parameter name="idleTimeout" value="40000" />
+			<parameter name="maxConnectionsPerHost" value="64" />
+			<parameter name="maxTotalConnections" value="128" />
+			<parameter name="stopIdleTimeout" value="10000" />
+			<parameter name="socketTimeout" value="0" />
+			<parameter name="tcpNoDelay" value="false" />
+		</connector-parameters>
+
+	</restlet-client>
+
+	<thumbnail-sizes>
+		<size>60</size>
+		<size>150</size>
+	</thumbnail-sizes>
+
+</config>

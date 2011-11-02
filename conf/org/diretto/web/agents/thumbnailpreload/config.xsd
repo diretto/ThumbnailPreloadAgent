@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:element name="config">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="api-base-url" type="xs:anyURI" />
+				<xs:element name="system-user">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="email-address" type="xs:string" />
+							<xs:element name="password" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="restlet-client">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="connector-protocol" type="xs:string" />
+							<xs:element ref="connector-parameters" minOccurs="0"
+								maxOccurs="1" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="thumbnail-sizes">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="size" minOccurs="1" maxOccurs="unbounded">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:minInclusive value="16" />
+										<xs:maxInclusive value="256" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="connector-parameters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="parameter" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="value" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
